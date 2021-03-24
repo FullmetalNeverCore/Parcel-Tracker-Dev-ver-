@@ -7,7 +7,7 @@ import trackparcel
 from trackparcel import *
 
 
-token = ""
+token = "1050076631:AAF4SnXnXH0PWBao4dbeG1xi3vkswBHb6ZU"
 api = Bot(token=token, parse_mode=types.ParseMode.MARKDOWN)
 disp = Dispatcher(api)
 logging.basicConfig(level=logging.INFO)
@@ -18,7 +18,8 @@ async def track(message: types.Message):
     mt = message.text 
     print(message.text)
     mt2 = mt.split("-")
-    await trackparcel.url_creator(mt2[1], id)
+    print(mt2)
+    trackparcel.ParcelTrack().FoundField(mt2[1])
 
 async def send_msg(msg, id):
     print(msg)
